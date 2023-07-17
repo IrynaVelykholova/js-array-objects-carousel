@@ -24,3 +24,9 @@ const images = [
     }
 ];
 
+//creo ciclo forEach sul mio array object
+images.forEach((element) => {
+    console.log(`
+    ${element.image} ${element.title} ${element.title}
+    `);
+});
