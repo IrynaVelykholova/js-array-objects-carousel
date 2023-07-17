@@ -31,7 +31,7 @@ images.forEach((element) => {
     `);
     carouselContainer.innerHTML += 
     `<div class="carousel-image-container">
-    <img src="img/${element.image}" alt="" class="carousel-image">
+    <img src="${element.image}" alt="" class="carousel-image">
     </div>
     `
 });
