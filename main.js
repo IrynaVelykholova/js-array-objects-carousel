@@ -41,6 +41,8 @@ images.forEach((element, i) => {
     carouselContainer.innerHTML += 
     `<div class="carousel-image-container ${imageActive}">
     <img src="${element.image}" alt="" class="carousel-image">
+    <h3>${element.title}</h3>
+    <p>${element.text}</p>
     </div>
     `
 });
@@ -49,6 +51,16 @@ const btnLeft = document.getElementById("btn-left");
 
 btnRight.addEventListener("click", function() {
     console.log("ho cliccato btn right");
+
+    //prendo elemento subito dopo che ha classe active
+    const next = document.querySelector(".carousel-image-container.active + div")
+    console.log(next);
+
+    // devo togliere la classe active dalla classe che ce l'ha
+    document.querySelector(".carousel-image-container.active").classList.remove("active");
+
+    //mettere active all'immagine successiva
+    next.classList.add("active");
 });
 
 btnLeft.addEventListener("click", function() {
