@@ -27,13 +27,15 @@ const images = [
 ];
 
 //creo ciclo forEach sul mio array object
-images.forEach((element) => {
+images.forEach((element, i) => {
     console.log(`
     ${element.image} ${element.title} ${element.title}
     `);
 
     if(i === 0) {
         imageActive = "active";
+    } else {
+        imageActive = "";
     }
 
     carouselContainer.innerHTML += 
@@ -42,5 +44,13 @@ images.forEach((element) => {
     </div>
     `
 });
+const btnLeft = document.getElementById("btn-left");
+    const btnRight = document.getElementById("btn-right");
 
+btnRight.addEventListener("click", function() {
+    console.log("ho cliccato btn right");
+});
 
+btnLeft.addEventListener("click", function() {
+    console.log("ho cliccato btn left");
+});
