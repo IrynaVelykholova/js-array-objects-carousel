@@ -1,6 +1,6 @@
 .title {
-    margin-bottom: 50px;
-    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-top: 60px;
     text-align: center;
 }
 
@@ -18,6 +18,12 @@
     position: absolute;
     left: 0;
     top: 0;
+    opacity: 0;
+}
+/* metto in opacity 0 le img per renderle invisibili
+e con l'active metto opacity 1 */
+.carousel-image-container.active {
+    opacity: 1;
 }
 
 .carousel-image {

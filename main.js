@@ -1,4 +1,6 @@
+"use script"
 const carouselContainer = document.querySelector(".carousel-container");
+let imageActive = "";
 
 const images = [
     {
@@ -29,9 +31,16 @@ images.forEach((element) => {
     console.log(`
     ${element.image} ${element.title} ${element.title}
     `);
+
+    if(i === 0) {
+        imageActive = "active";
+    }
+
     carouselContainer.innerHTML += 
-    `<div class="carousel-image-container">
+    `<div class="carousel-image-container ${imageActive}">
     <img src="${element.image}" alt="" class="carousel-image">
     </div>
     `
 });
+
+
