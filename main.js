@@ -1,6 +1,7 @@
 "use script"
 const carouselContainer = document.querySelector(".carousel-container");
 let imageActive = "";
+let imageIndex = 0;
 
 const images = [
     {
@@ -52,17 +53,50 @@ const btnLeft = document.getElementById("btn-left");
 btnRight.addEventListener("click", function() {
     console.log("ho cliccato btn right");
 
-    //prendo elemento subito dopo che ha classe active
-    const next = document.querySelector(".carousel-image-container.active + div")
-    console.log(next);
+    //prendo tutti gli elem con classe carousel-image-container
+    const listImages = document.querySelectorAll(".carousel-image-container");
+    console.log(listImages[imageIndex]);
+
+    //dall'immagine active tolgo la classe
+    listImages[imageIndex].classList.remove("active");
+
+    //incremento contatore e assegno classe active
+    imageIndex++;
+    //quando arriva all'ultima si ferma
+    if (imageIndex > listImages.length - 1) {
+        imageIndex = 0;
+    }
+
+    listImages[imageIndex].classList.add("active");
+
+    // PRIMO METODO PER GIRARE A DESTRA
+    //prendo elemento subito dopo che ha classe active (+ div perchè prende il primo div che c'è dopo)
+    //const next = document.querySelector(".carousel-image-container.active + div")
+    //console.log(next);
 
     // devo togliere la classe active dalla classe che ce l'ha
-    document.querySelector(".carousel-image-container.active").classList.remove("active");
+    //document.querySelector(".carousel-image-container.active").classList.remove("active");
 
     //mettere active all'immagine successiva
-    next.classList.add("active");
+    //next.classList.add("active");
 });
 
 btnLeft.addEventListener("click", function() {
     console.log("ho cliccato btn left");
+
+    //prendo tutti gli elem con classe carousel-image-container
+    const listImages = document.querySelectorAll(".carousel-image-container");
+    console.log(listImages[imageIndex]);
+
+    //dall'immagine active tolgo la classe
+    listImages[imageIndex].classList.remove("active");
+
+    //incremento contatore e assegno classe active
+    imageIndex--;
+    //quando arriva all'ultima si ferma
+    if(imageIndex < 0) {
+        imageIndex = listImages.length - 1;
+    }
+
+    listImages[imageIndex].classList.add("active");
 });
