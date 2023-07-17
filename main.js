@@ -1,3 +1,5 @@
+const carouselContainer = document.querySelector(".carousel-container");
+
 const images = [
     {
         image: 'img/01.webp',
